@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Current Time</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20%;
+        }
+        h2 {
+            margin: 0;
+        }
+        #time {
+            font-size: 2em;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
-    <div><h2>Time</h2><span>:</span><h3 id="time"></h3></div>
+    <div class="container">
+        <h2>Current Time</h2>
+        <h3 id="time"></h3>
+    </div>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('time').textContent = timeString;
+        }
+        setInterval(updateTime, 1000);
+        updateTime(); // Initialize immediately
+    </script>
 </body>
 </html>
